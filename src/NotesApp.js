@@ -16,3 +16,4 @@ export default class NotesApp extends React.Component {
         )
     }
 }
+
