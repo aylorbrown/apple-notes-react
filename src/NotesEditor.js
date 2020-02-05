@@ -1,7 +1,16 @@
 import React from 'react';
 
-export default function NoteEditor() {
+export default function NoteEditor({
+    text, 
+    handleChange
+}) {
+
     return(
-        <textarea value="Lorem ipsum blah blah"/>
+        <textarea 
+        onChange={(event) => {
+            handleChange(event.target.value)
+        }}
+        value={text}
+        />
     );
 }

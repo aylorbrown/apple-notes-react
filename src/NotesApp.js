@@ -43,7 +43,10 @@ export default class NotesApp extends React.Component {
                 notes={this._getFilteredNotes()}
                 handleClick={this._selectNote}
                 />
-                <NotesEditor />
+                <NotesEditor
+                handleChange={this._setEditorText} 
+                text={this.state.editorText}
+                />
             </div>
         )
     }
@@ -57,6 +60,14 @@ export default class NotesApp extends React.Component {
             searchText
         }, () => {
             console.log('updated search text')
+        });
+    }
+
+    _setEditorText = (editorText) => {
+        this.setState({
+            editorText
+        }, () => {
+            console.log('updated editor text')
         });
     }
 
@@ -87,3 +98,7 @@ export default class NotesApp extends React.Component {
 
 }
 
+
+// click to make a note show up in the text area 
+// as you type in text HTMLTextAreaElement, update the note akak turn into a controlled component 
+// so you can see the changes

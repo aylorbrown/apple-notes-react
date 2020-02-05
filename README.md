@@ -13,3 +13,6 @@ What components are in the Notes App?
 
 A diagram of the components with state and helper functions 
 ![Notes App Diagram with State and Helper Function](images/notes-app-diagram-with-state-and-helper-functions.png)
+
+The Flow of a Controlled Component 
+![Flow on Controlled Component](images/flow-of-controlled-component.png)
