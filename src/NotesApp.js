@@ -10,7 +10,7 @@ export default class NotesApp extends React.Component {
         super(props);
         this.state = {
             currentNoteId: '',
-            searchText: 'This is the search text', 
+            searchText: '', 
             notes: [
                 {
                     id: 'a12bca', 
@@ -39,7 +39,8 @@ export default class NotesApp extends React.Component {
                 handleChange={this._setSearchText}
                 text={this.state.searchText}/>
                 <NotesList 
-                notes={this.state.notes}
+                // pass result of calling the function! aka add parens
+                notes={this._getFilteredNotes()}
                 handleClick={this._selectNote}
                 />
                 <NotesEditor />
@@ -66,6 +67,21 @@ export default class NotesApp extends React.Component {
         }, () => {
             console.log('updated current id')
         });
+    }
+
+    // helper function for filtering 
+    _getFilteredNotes = () => {
+        // pass a function that knows how to look at one item at a time (filter) 
+        // it handles off control to the helpe function 
+        const filteredArray = this.state.notes.filter(note => {
+            // includes will looks into note.title and note.copy
+            const titleDoesMatch = note.title.includes(this.state.searchText);
+            const copyDoesMatch = note.copy.includes(this.state.searchText);
+
+            return titleDoesMatch || copyDoesMatch;
+        });
+
+        return filteredArray;
     }
 
 
