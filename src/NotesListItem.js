@@ -1,7 +1,20 @@
 import React from 'react';
 
-export default function NotesListItem() {
+export default function NotesListItem({
+    //what goes here?
+    title, 
+    id, 
+    handleClick
+}) {
     return (
-        <li>This is an item</li>
+        // display the title of the note 
+        <li 
+        onClick={() => {
+            console.log(`you clicked {id}`);
+            handleClick(id)
+        }}
+        >{title}
+        </li>
     );
 }
+

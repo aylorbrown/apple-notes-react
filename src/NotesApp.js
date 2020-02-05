@@ -9,7 +9,25 @@ export default class NotesApp extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            searchText: 'This is the search text'
+            currentNoteId: '',
+            searchText: 'This is the search text', 
+            notes: [
+                {
+                    id: 'a12bca', 
+                    title: "Grocery List", 
+                    copy: 'Sardines'
+                }, 
+                {
+                    id: 'a12b90', 
+                    title: "Ikea List", 
+                    copy: 'Coffee Table'
+                }, 
+                {
+                    id: 'a12b42', 
+                    title: "Home Depot List", 
+                    copy: 'Industrial Dish Soap'
+                }, 
+            ]
         };
     }
     render() {
@@ -20,7 +38,10 @@ export default class NotesApp extends React.Component {
                 <SearchBar 
                 handleChange={this._setSearchText}
                 text={this.state.searchText}/>
-                <NotesList />
+                <NotesList 
+                notes={this.state.notes}
+                handleClick={this._selectNote}
+                />
                 <NotesEditor />
             </div>
         )
@@ -35,6 +56,15 @@ export default class NotesApp extends React.Component {
             searchText
         }, () => {
             console.log('updated search text')
+        });
+    }
+
+    // helper function that is going to modify state
+    _selectNote = (currentNoteId) => {
+        this.setState({
+            currentNoteId
+        }, () => {
+            console.log('updated current id')
         });
     }
 

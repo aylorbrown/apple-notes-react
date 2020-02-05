@@ -10,4 +10,6 @@ Features:
 What components are in the Notes App?
 ![React Notes App UI Diagram](images/react-notes-app-ui-diagram.png)
 
+
+A diagram of the components with state and helper functions 
 ![Notes App Diagram with State and Helper Function](images/notes-app-diagram-with-state-and-helper-functions.png)
