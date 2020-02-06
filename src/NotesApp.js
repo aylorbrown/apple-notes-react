@@ -44,6 +44,7 @@ export default class NotesApp extends React.Component {
                 handleClick={this._selectNote}
                 />
                 <NotesEditor
+                note={this._getNoteById()}
                 handleChange={this._setEditorText} 
                 text={this.state.editorText}
                 />
@@ -80,7 +81,14 @@ export default class NotesApp extends React.Component {
         });
     }
 
-    // helper function for filtering 
+    _getNoteById = () => {
+        const theNote = this.state.notes.find(note => note.id === this.state.currentNoteId)  || {};
+        return theNote;
+        // or 
+        // return this.state.notes.find(note => note.id === this.state.currentNoteId)
+    }
+
+    // helper function for filtering, search as you type
     _getFilteredNotes = () => {
         // pass a function that knows how to look at one item at a time (filter) 
         // it handles off control to the helpe function 
@@ -99,6 +107,5 @@ export default class NotesApp extends React.Component {
 }
 
 
-// click to make a note show up in the text area 
 // as you type in text HTMLTextAreaElement, update the note akak turn into a controlled component 
 // so you can see the changes
