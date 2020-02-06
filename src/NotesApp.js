@@ -15,17 +15,18 @@ export default class NotesApp extends React.Component {
                 {
                     id: 'a12bca', 
                     title: "Grocery List", 
-                    copy: 'Sardines'
+                    copy: 'Sardines, Ezekial Bread, Eggs, Oranges'
                 }, 
                 {
                     id: 'a12b90', 
                     title: "Ikea List", 
-                    copy: 'Coffee Table'
+                    copy: 'Coffee Table, Dish Towels, Picture Frames, Swedish Meatballs'
                 }, 
                 {
                     id: 'a12b42', 
-                    title: "Home Depot List", 
-                    copy: 'Industrial Dish Soap'
+                    title: "Concepts to Look Up", 
+                    copy: 'foreign key v primary key, many-to many, pg-promise'
+
                 }, 
             ]
         };
@@ -33,7 +34,7 @@ export default class NotesApp extends React.Component {
     render() {
         return (
             <div>
-                <h1>My notes APP!</h1>
+                <h1>NOTES</h1>
                 <NewNote />
                 <SearchBar 
                 handleChange={this._setSearchText}
@@ -103,9 +104,7 @@ export default class NotesApp extends React.Component {
         return filteredArray;
     }
 
+   
+
 
 }
-
-
-// as you type in text HTMLTextAreaElement, update the note akak turn into a controlled component 
-// so you can see the changes

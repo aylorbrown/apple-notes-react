@@ -16,3 +16,12 @@ A diagram of the components with state and helper functions
 
 The Flow of a Controlled Component 
 ![Flow on Controlled Component](images/flow-of-controlled-component.png)
+
+
+Demo:
+
+![Demo](images/Kapture-2020-02-06-at 9.48.58.gif)
+
+Demo with console.log:
+
+![Demo with console.log](images/Kapture-2020-02-06-at-9.54.51.gif)

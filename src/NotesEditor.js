@@ -8,13 +8,26 @@ export default function NoteEditor({
 
     return(
         <div>
-            <input value={note.title}/>
+            <input 
+            value={note.title}
+            // send back a copy with the updated "title"
+            onChange={(event) => {
+                handleChange({
+                    ...note,
+                    title: event.target.value
+                });
+            }}
+            />
             <br />
             <textarea 
-            onChange={(event) => {
-                handleChange(event.target.value)
-            }}
             value={note.copy}
+            onChange={(event) => {
+                handleChange({
+                    ...note, 
+                    copy: event.target.value
+                })
+                // handleChange(event.target.value)
+            }}
             />
         </div>
     );
