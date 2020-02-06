@@ -18,10 +18,77 @@ The Flow of a Controlled Component
 ![Flow on Controlled Component](images/flow-of-controlled-component.png)
 
 
+```_updateNote``` is a helper function that updates the note as the user types in the NotesEditor text area:
+
+```javascript
+_updateNote = (changedNote) => {
+        console.table(changedNote);
+
+        const updatedNotesArray = this.state.notes.map(note => {
+            if (note.id !== this.state.currentNoteId) {
+                return note;
+            } else {
+                return changedNote;
+            }
+        });
+
+        this.setState({
+            notes: updatedNotesArray
+        }, () => {
+            console.log(`Updated note with id ${changedNote.id}`);
+        });
+    }
+```
+
+Update to the NotesApp class:
+
+```javascript
+<NotesEditor
+    note={this._getNoteById()}
+    handleChange={this._updateNote}
+    />
+```
+
+And the NoteEditor function:
+
+```javascript
+export default function NoteEditor({
+    note,
+    handleChange
+}) {
+
+    return(
+        <div>
+            <input 
+            value={note.title}
+            // send back a copy with the updated "title"
+            onChange={(event) => {
+                handleChange({
+                    ...note,
+                    title: event.target.value
+                });
+            }}
+            />
+            <br />
+            <textarea 
+            value={note.copy}
+            onChange={(event) => {
+                handleChange({
+                    ...note, 
+                    copy: event.target.value
+                })
+                // handleChange(event.target.value)
+            }}
+            />
+        </div>
+    );
+}
+```
+
 Demo:
 
-![Demo](images/Kapture-2020-02-06-at-9.48.58.gif)
+![Demo](images/Kapture-2020-02-06-at-10.15.40.gif)
 
 Demo with console.log:
 
-![Demo with console.log](images/Kapture-2020-02-06-at-9.54.51.gif)
+![Demo with console.log](images/Kapture-2020-02-06-at-10.15.40.gif)

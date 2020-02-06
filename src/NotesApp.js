@@ -47,14 +47,13 @@ export default class NotesApp extends React.Component {
                 <NotesEditor
                 note={this._getNoteById()}
                 handleChange={this._updateNote}
-                // handleChange={this._setEditorText} 
                 text={this.state.editorText}
                 />
             </div>
         )
     }
 
-    // helper functions (methods that mofidy state) always are in the same 
+    // helper functions (methods that modify state) always are in the same 
     // class as where state is defined 
     _setSearchText = (searchText) => {
         // first argument is an object, second is a callback function/anonymous
@@ -111,7 +110,7 @@ export default class NotesApp extends React.Component {
     // helper function for filtering, search as you type
     _getFilteredNotes = () => {
         // pass a function that knows how to look at one item at a time (filter) 
-        // it handles off control to the helpe function 
+        // it handles off control to the helper function 
         const filteredArray = this.state.notes.filter(note => {
             // includes will looks into note.title and note.copy
             const titleDoesMatch = note.title.includes(this.state.searchText);
