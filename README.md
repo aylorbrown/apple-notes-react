@@ -87,7 +87,7 @@ export default function NoteEditor({
 
 Demo:
 
-![Demo](images/Kapture-2020-02-06-at-10.15.40.gif)
+![Demo](images/Kapture-2020-02-06-at-10.12.43.gif)
 
 Demo with console.log:
 
