@@ -20,7 +20,7 @@ The Flow of a Controlled Component
 
 Demo:
 
-![Demo](images/Kapture-2020-02-06-at 9.48.58.gif)
+![Demo](images/Kapture-2020-02-06-at-9.48.58.gif)
 
 Demo with console.log:
 
