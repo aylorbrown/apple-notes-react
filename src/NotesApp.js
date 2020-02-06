@@ -46,7 +46,8 @@ export default class NotesApp extends React.Component {
                 />
                 <NotesEditor
                 note={this._getNoteById()}
-                handleChange={this._setEditorText} 
+                handleChange={this._updateNote}
+                // handleChange={this._setEditorText} 
                 text={this.state.editorText}
                 />
             </div>
@@ -65,13 +66,31 @@ export default class NotesApp extends React.Component {
         });
     }
 
-    _setEditorText = (editorText) => {
+    _updateNote = (changedNote) => {
+        console.table(changedNote);
+
+        const updatedNotesArray = this.state.notes.map(note => {
+            if (note.id !== this.state.currentNoteId) {
+                return note;
+            } else {
+                return changedNote;
+            }
+        });
+
         this.setState({
-            editorText
+            notes: updatedNotesArray
         }, () => {
-            console.log('updated editor text')
+            console.log(`Updated note with id ${changedNote.id}`);
         });
     }
+
+    // _setEditorText = (editorText) => {
+    //     this.setState({
+    //         editorText
+    //     }, () => {
+    //         console.log('updated editor text')
+    //     });
+    // }
 
     // helper function that is going to modify state
     _selectNote = (currentNoteId) => {
